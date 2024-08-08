@@ -11,7 +11,7 @@ const pauseSoundBtn = document.getElementById('pauseSoundBtn');
 const soundSelect = document.getElementById('soundSelect');
 const customizationForm = document.getElementById('customizationForm');
 
-let sound = new Audio('sounds/rain.mp3');
+let sound = new Audio('sounds/forest.mp3');
 
 function updateTimerDisplay(minutes, seconds) {
   timerDisplay.textContent = `${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`;
@@ -79,6 +79,7 @@ soundSelect.addEventListener('change', (event) => {
       sound = new Audio('sounds/separation.mp3');
       break;
   }
+  sound.play(); // Play the newly selected sound immediately
 });
 
 customizationForm.addEventListener('submit', (event) => {
