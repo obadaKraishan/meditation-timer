@@ -30,20 +30,20 @@ function startTimer(duration) {
         updateTimerDisplay(0, 0);
         alert('Meditation session complete!');
       }
+      timeRemaining = time; // Update timeRemaining as the timer counts down
     }
   }, 1000);
 }
 
 startBtn.addEventListener('click', () => {
-  if (timeRemaining) {
+  if (isPaused) {
     isPaused = false;
-    startTimer(timeRemaining);
   } else {
     const minutes = parseInt(document.getElementById('sessionMinutes').value) || 0;
     const seconds = parseInt(document.getElementById('sessionSeconds').value) || 0;
     timeRemaining = (minutes * 60) + seconds;
-    startTimer(timeRemaining);
   }
+  startTimer(timeRemaining);
 });
 
 pauseBtn.addEventListener('click', () => {
